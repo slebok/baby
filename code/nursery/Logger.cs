@@ -11,13 +11,19 @@ namespace nursery
             throw new Exception(message);
         }
 
-        internal static void ErrorIdDivNotFound(uint line)
-            => Error(line, "Identification division not found");
-
         internal static void ErrorIdDivClauseBug(uint line, string clause)
             => Error(line, "Identification clause incorrect: " + clause);
 
         internal static void ErrorIdDivClauseDup(uint line, string clause)
             => Error(line, "Identification clause duplicate: " + clause);
+
+        internal static void ErrorDataDivWrongLevel(uint line, string level)
+            => Error(line, "Wrong level in the data entry: " + level);
+
+        internal static void ErrorDataDivWrongOccurs(uint line, string name)
+            => Error(line, "Wrong occurs clause in the data entry: " + name);
+
+        internal static void ErrorDataDivNotAView(uint line, string name)
+            => Error(line, "A field cannot be connected to a view: " + name);
     }
 }

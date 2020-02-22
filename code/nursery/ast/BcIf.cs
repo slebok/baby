@@ -5,7 +5,7 @@ namespace nursery.ast
     internal class BcIf : BcStatement
     {
         internal BcBoolean Condition;
-        internal List<BcStatement> Then = new List<BcStatement>();
-        internal List<BcStatement> Else = new List<BcStatement>();
+        internal BcBlock Then;
+        internal BcBlock Else;
     }
 }

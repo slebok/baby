@@ -8,8 +8,9 @@ namespace nursery.ast
         internal SortedDictionary<string, string> Identifications = new SortedDictionary<string, string>();
 
         // DATA DIVISION
-        // TODO
+        internal List<BcDataEntry> Data = new List<BcDataEntry>();
+
         // PROCEDURE DIVISION
-        internal SortedDictionary<string, List<BcSentence>> Paragraphs = new SortedDictionary<string, List<BcSentence>>();
+        internal SortedDictionary<string, BcBlock> Paragraphs = new SortedDictionary<string, BcBlock>();
     }
 }

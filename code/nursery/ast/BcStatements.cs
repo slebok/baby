@@ -2,17 +2,21 @@
 
 namespace nursery.ast
 {
+    internal class BcBlock : AstNode
+    {
+        internal List<BcSentence> Sentences = new List<BcSentence>();
+    }
 
-    public class BcSentence : AstNode
+    internal class BcSentence : AstNode
     {
         internal List<BcStatement> Statements = new List<BcStatement>();
     }
 
-    public class BcStatement : BcLoopStatement
+    internal class BcStatement : BcLoopStatement
     {
     }
 
-    public class BcLoopStatement : AstNode
+    internal class BcLoopStatement : AstNode
     {
     }
 }

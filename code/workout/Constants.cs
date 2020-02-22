@@ -21,5 +21,9 @@
         internal static string D(string code)
             => code + '.';
 
+        internal static string PIC(int level, string name, string pattern)
+            => $"{level:00} {name} PICTURE IS {pattern}";
+
+
     }
 }

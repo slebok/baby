@@ -15,6 +15,6 @@ namespace nursery.ast
         // NB: length 0 means OTHER
         internal List<BcAtomic> Conditions = new List<BcAtomic>();
 
-        internal List<BcSentence> Code = new List<BcSentence>();
+        internal BcBlock Code;
     }
 }

@@ -4,6 +4,7 @@ namespace nursery.ast
 {
     internal class BcLoop : BcStatement
     {
+        // TODO: have support for sentences, not statements
         internal List<BcLoopStatement> Body = new List<BcLoopStatement>();
     }
 
