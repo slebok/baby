@@ -9,10 +9,6 @@ namespace workout
     [TestClass]
     public class Indentation
     {
-        private const string One = " ";
-        private const string Six = "      ";
-        private const string Four = "    ";
-
         [TestMethod, TestCategory("preprocessor")]
         public void EmptyLine00()
         {
@@ -25,7 +21,7 @@ namespace workout
         [TestMethod, TestCategory("preprocessor")]
         public void EmptyLine06()
         {
-            string input = Six;
+            string input = X.Six;
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(0, lines.Count);
@@ -34,7 +30,7 @@ namespace workout
         [TestMethod, TestCategory("preprocessor")]
         public void EmptyLine07()
         {
-            string input = Six + One;
+            string input = X.Six + X.One;
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(0, lines.Count);
@@ -43,7 +39,7 @@ namespace workout
         [TestMethod, TestCategory("preprocessor")]
         public void EmptyLine11()
         {
-            string input = Six + One + Four;
+            string input = X.Six + X.One + X.Four;
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(0, lines.Count);
@@ -52,7 +48,7 @@ namespace workout
         [TestMethod, TestCategory("preprocessor")]
         public void EmptyLine12()
         {
-            string input = Six + Six;
+            string input = X.Six + X.Six;
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(0, lines.Count);
@@ -61,27 +57,27 @@ namespace workout
         [TestMethod, TestCategory("preprocessor")]
         public void LineZoneA()
         {
-            string id = "IDENTIFICATION DIVISION.";
-            string input = Six + One + id;
+            string input = X.A(X.D(X.ID_DIV));
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(1, lines.Count);
             LineZoneA line = lines[0] as LineZoneA;
             Assert.IsNotNull(line);
-            Assert.AreEqual(id, line.Content);
+            Assert.AreEqual((uint)1, line.Line);
+            Assert.AreEqual(X.D(X.ID_DIV), line.Content);
         }
 
         [TestMethod, TestCategory("preprocessor")]
         public void LineZoneB()
         {
-            string next = "NEXT SENTENCE";
-            string input = Six + One + Four + next;
+            string input = X.B(X.D(X.S_NXT_SEN));
             List<LineOfCode> lines = BackDoor.Preprocess(input);
             Assert.IsNotNull(lines);
             Assert.AreEqual(1, lines.Count);
             LineZoneB line = lines[0] as LineZoneB;
             Assert.IsNotNull(line);
-            Assert.AreEqual(next, line.Content);
+            Assert.AreEqual((uint)1, line.Line);
+            Assert.AreEqual(X.D(X.S_NXT_SEN), line.Content);
         }
     }
 }

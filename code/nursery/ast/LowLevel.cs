@@ -1,22 +1,25 @@
 ﻿namespace nursery.ast
 {
-    public class LineOfCode
+    internal class LineOfCode
     {
         public string Content { get; protected set; }
+        public uint Line { get; protected set; }
     }
 
-    public class LineZoneA : LineOfCode
+    internal class LineZoneA : LineOfCode
     {
-        internal LineZoneA(string x)
+        internal LineZoneA(uint line, string x)
         {
+            Line = line;
             Content = x;
         }
     }
 
-    public class LineZoneB : LineOfCode
+    internal class LineZoneB : LineOfCode
     {
-        internal LineZoneB(string x)
+        internal LineZoneB(uint line, string x)
         {
+            Line = line;
             Content = x;
         }
     }

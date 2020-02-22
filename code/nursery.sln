@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nursery", "nursery\nursery.csproj", "{C32FC6C4-F48C-4497-BD47-9FCA74C4A55B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "workout", "workout\workout.csproj", "{3CC0316B-6721-4315-9D34-AA6F02FD4AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "workout", "workout\workout.csproj", "{3CC0316B-6721-4315-9D34-AA6F02FD4AE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2F2A4E0-4B37-4F73-82A5-6E9EDBDC7D38}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

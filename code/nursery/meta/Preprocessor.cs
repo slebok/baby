@@ -7,8 +7,11 @@ namespace nursery.meta
 {
     internal static class Preprocessor
     {
+        private static uint LineCount;
+
         internal static List<LineOfCode> Preprocess(List<string> input)
         {
+            LineCount = 0;
             // this will store the slowly accumulating processed lines
             List<LineOfCode> lines = new List<LineOfCode>();
             // this will hold the last line's contents
@@ -18,6 +21,8 @@ namespace nursery.meta
 
             foreach (var line in input)
             {
+                // increase the physical line count
+                LineCount++;
                 // empty line or line too short to have a status
                 if (String.IsNullOrEmpty(line) || line.Length < 7)
                 {
@@ -57,9 +62,9 @@ namespace nursery.meta
             if (current.Length == 0)
                 return;
             if (a)
-                lines.Add(new LineZoneA(current.ToString()));
+                lines.Add(new LineZoneA(LineCount, current.ToString()));
             else
-                lines.Add(new LineZoneB(current.ToString()));
+                lines.Add(new LineZoneB(LineCount, current.ToString()));
             current.Clear();
         }
 
@@ -67,7 +72,7 @@ namespace nursery.meta
         {
             if (line.Length > 72)
                 line = line.Substring(0, 72);
-            var v= line.Substring(7);
+            var v = line.Substring(7);
             Console.WriteLine($"[{v}]");
             return line.Substring(7);
         }
