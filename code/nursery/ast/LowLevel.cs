@@ -2,8 +2,8 @@
 {
     internal class LineOfCode
     {
-        public string Content { get; protected set; }
-        public uint Line { get; protected set; }
+        internal string Content { get; private protected set; }
+        internal uint Line { get; private protected set; }
     }
 
     internal class LineZoneA : LineOfCode

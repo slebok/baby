@@ -1,6 +1,6 @@
 ﻿namespace nursery.ast
 {
-    public class AstNode
+    internal class AstNode
     {
     }
 }

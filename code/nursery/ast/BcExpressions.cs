@@ -16,7 +16,7 @@
     {
         internal string Value;
 
-        public BcCharLiteral(string x)
+        internal BcCharLiteral(string x)
         {
             Value = x;
         }
@@ -26,7 +26,7 @@
     {
         internal long Value; // TODO: make it scale
 
-        public BcDecLiteral(long x)
+        internal BcDecLiteral(long x)
         {
             Value = x;
         }

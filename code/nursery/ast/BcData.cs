@@ -46,7 +46,7 @@ namespace nursery.ast
     {
         internal List<BcDataEntry> Inners = new List<BcDataEntry>();
 
-        public BcDataView(int level, string v)
+        internal BcDataView(int level, string v)
         {
             Level = level;
             Name = v;
