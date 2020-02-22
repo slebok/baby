@@ -1,6 +1,7 @@
 ﻿using nursery.ast;
 using nursery.meta;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("workout")]
@@ -12,16 +13,7 @@ namespace nursery
         internal static List<LineOfCode> Preprocess(string input)
             => Preprocessor.Preprocess(new List<string>() { input });
 
-        internal static BcProgram Parse(string input)
-            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input }));
-
-        internal static BcProgram Parse(string input1, string input2)
-            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2 }));
-
-        internal static BcProgram Parse(string input1, string input2, string input3)
-            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2, input3 }));
-
-        internal static BcProgram Parse(string input1, string input2, string input3, string input4)
-            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2, input3, input4 }));
+        internal static BcProgram Parse(params string[] inputs)
+            => Parser.Parse(Preprocessor.Preprocess(inputs.ToList()));
     }
 }

@@ -77,7 +77,6 @@ namespace nursery.meta
                     }
                     // LIKE
                     int lastLikePos = val.LastIndexOf(LIKE);
-                    // TODO: make it work for 01 DISLIKE LIKE UNLIKE
                     if (lastLikePos >= 0)
                     {
                         bool done = false;
@@ -98,11 +97,16 @@ namespace nursery.meta
                                 done = true;
                             }
                         }
-                        if (!done)
-                            Logger.ErrorDataDivWrongLike(lineNo, val);
+                        if (done)
+                        {
+                            index++;
+                            continue;
+                        }
                     }
-
                     // nothing
+                    var v = new BcDataView(level, val.Substring(2));
+                    RememberFieldType(v, CachedData, Duplicates);
+                    ConnectField(prg.Data, v, lineNo, level, occurs);
                     index++;
                 }
             }

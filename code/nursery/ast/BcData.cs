@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace nursery.ast
 {
@@ -47,9 +46,17 @@ namespace nursery.ast
     {
         internal List<BcDataEntry> Inners = new List<BcDataEntry>();
 
+        public BcDataView(int level, string v)
+        {
+            Level = level;
+            Name = v;
+            if (v.EndsWith('.'))
+                Name = Name.Substring(0, Name.Length - 1);
+        }
+
         internal override BcDataEntry Like()
         {
-            var r = new BcDataView();
+            var r = new BcDataView(Level, Name);
             foreach (var f in Inners)
                 r.Inners.Add(f.Like());
             // NB: this can lead to screwed up levels inside, but at this point we won't care

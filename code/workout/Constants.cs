@@ -26,5 +26,8 @@
 
         internal static string LIKE(int level, string name, string likeName)
             => $"{level:00} {name} LIKE {likeName}";
+
+        internal static string VIEW(int level, string name)
+            => $"{level:00} {name}.";
     }
 }
