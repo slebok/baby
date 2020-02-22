@@ -24,6 +24,7 @@
         internal static string PIC(int level, string name, string pattern)
             => $"{level:00} {name} PICTURE IS {pattern}";
 
-
+        internal static string LIKE(int level, string name, string likeName)
+            => $"{level:00} {name} LIKE {likeName}";
     }
 }

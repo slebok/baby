@@ -17,5 +17,11 @@ namespace nursery
 
         internal static BcProgram Parse(string input1, string input2)
             => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2 }));
+
+        internal static BcProgram Parse(string input1, string input2, string input3)
+            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2, input3 }));
+
+        internal static BcProgram Parse(string input1, string input2, string input3, string input4)
+            => Parser.Parse(Preprocessor.Preprocess(new List<string>() { input1, input2, input3, input4 }));
     }
 }

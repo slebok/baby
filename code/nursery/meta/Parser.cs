@@ -71,22 +71,37 @@ namespace nursery.meta
                         string pat = val.Substring(picPos + PICTURE.Length);
                         BcDataEntry f = new BcDataField(level, val.Substring(2, picPos - 2), pat);
                         RememberFieldType(f, CachedData, Duplicates);
-                        if (occurs != 1)
-                            f = new BcDataArray(f, occurs);
-                        if (prg.Data.Count == 0 || NotNested(level, prg.Data))
-                            prg.Data.Add(f);
-                        else
-                        {
-                            var parent = prg.Data[prg.Data.Count - 1] as BcDataView;
-                            if (parent == null)
-                                Logger.ErrorDataDivNotAView(lineNo, f.Name);
-                            else
-                                parent.Inners.Add(f);
-                        }
+                        ConnectField(prg.Data, f, lineNo, level, occurs);
                         index++;
                         continue;
                     }
                     // LIKE
+                    int lastLikePos = val.LastIndexOf(LIKE);
+                    // TODO: make it work for 01 DISLIKE LIKE UNLIKE
+                    if (lastLikePos >= 0)
+                    {
+                        bool done = false;
+                        int curLikePos = -LIKE.Length;
+                        string s1, s2;
+                        while (!done && curLikePos < lastLikePos)
+                        {
+                            curLikePos = val.IndexOf(LIKE, curLikePos + LIKE.Length);
+                            s1 = val.Substring(2, curLikePos - 2);
+                            s2 = val.Substring(curLikePos + LIKE.Length);
+                            if (CachedData.ContainsKey(s2))
+                            {
+                                BcDataEntry f = CachedData[s2].Like();
+                                f.Level = level;
+                                f.Name = s1;
+                                RememberFieldType(f, CachedData, Duplicates);
+                                ConnectField(prg.Data, f, lineNo, level, occurs);
+                                done = true;
+                            }
+                        }
+                        if (!done)
+                            Logger.ErrorDataDivWrongLike(lineNo, val);
+                    }
+
                     // nothing
                     index++;
                 }
@@ -99,6 +114,22 @@ namespace nursery.meta
                 // there is a procedure division
             }
             return prg;
+        }
+
+        private static void ConnectField(List<BcDataEntry> data, BcDataEntry f, uint lineno, int level, int occurs)
+        {
+            if (occurs != 1)
+                f = new BcDataArray(f, occurs);
+            if (data.Count == 0 || NotNested(level, data))
+                data.Add(f);
+            else
+            {
+                var parent = data[data.Count - 1] as BcDataView;
+                if (parent == null)
+                    Logger.ErrorDataDivNotAView(lineno, f.Name);
+                else
+                    parent.Inners.Add(f);
+            }
         }
 
         private static bool NotNested(int level, List<BcDataEntry> fields)

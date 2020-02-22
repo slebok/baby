@@ -23,6 +23,9 @@ namespace nursery
         internal static void ErrorDataDivWrongOccurs(uint line, string name)
             => Error(line, "Wrong occurs clause in the data entry: " + name);
 
+        internal static void ErrorDataDivWrongLike(uint line, string val)
+            => Error(line, "Wrong like clause in the data entry: " + val);
+
         internal static void ErrorDataDivNotAView(uint line, string name)
             => Error(line, "A field cannot be connected to a view: " + name);
     }

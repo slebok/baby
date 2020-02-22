@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace nursery.ast
 {
-    internal class BcDataEntry
+    internal abstract class BcDataEntry
     {
         internal int Level;
         internal string Name;
+
+        internal abstract BcDataEntry Like();
     }
 
     internal class BcDataField : BcDataEntry
@@ -18,6 +21,9 @@ namespace nursery.ast
             Name = n;
             Pattern = p;
         }
+
+        internal override BcDataEntry Like()
+            => new BcDataField(Level, Name, Pattern);
     }
 
     internal class BcDataArray : BcDataEntry
@@ -32,10 +38,22 @@ namespace nursery.ast
             Level = Inner.Level;
             Name = Inner.Name;
         }
+
+        internal override BcDataEntry Like()
+            => Inner.Like();
     }
 
     internal class BcDataView : BcDataEntry
     {
         internal List<BcDataEntry> Inners = new List<BcDataEntry>();
+
+        internal override BcDataEntry Like()
+        {
+            var r = new BcDataView();
+            foreach (var f in Inners)
+                r.Inners.Add(f.Like());
+            // NB: this can lead to screwed up levels inside, but at this point we won't care
+            return r;
+        }
     }
 }
