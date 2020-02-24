@@ -1,6 +1,7 @@
 ﻿using nursery.ast;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace nursery.meta
 {
@@ -12,6 +13,7 @@ namespace nursery.meta
         private const string OCCURS = "OCCURS";
         private const string PICTURE = "PICTUREIS";
         private const string LIKE = "LIKE";
+        private const string ACCEPT = "ACCEPT";
 
         internal static BcProgram Parse(List<LineOfCode> lines)
         {
@@ -117,10 +119,73 @@ namespace nursery.meta
             if (index < lines.Count && IsZoneAExact(lines[index], PROCEDURE_DIVISION))
             {
                 index++;
+                var currParaName = "";
+                var currParaCode = new BcBlock();
+                var currSentence = new BcSentence();
                 // there is a procedure division
+                while (index < lines.Count)
+                {
+                    var tokens = Tokenise(lines[index]);
+                    for (int i = 0; i < tokens.Count; i++)
+                    {
+                        if (tokens[i] is EOPToken tokenP)
+                        {
+                            if (currSentence.Statements.Count > 0)
+                            {
+                                currParaCode.Sentences.Add(currSentence);
+                                currSentence = new BcSentence();
+                            }
+                            if (currParaCode.Sentences.Count > 0)
+                            {
+                                prg.Paragraphs.Add(currParaName, currParaCode);
+                                currParaCode = new BcBlock();
+                                if (i + 2 < tokens.Count && tokens[i + 1] is UnquotedToken tokenPU && tokens[i + 2] is EOSToken)
+                                {
+                                    currParaName = tokenPU.Value;
+                                    i += 2;
+                                }
+                                else
+                                    currParaName = "";
+                            }
+                        }
+                        else if (tokens[i] is EOSToken tokenS)
+                        {
+                            if (currSentence.Statements.Count > 0)
+                            {
+                                currParaCode.Sentences.Add(currSentence);
+                                currSentence = new BcSentence();
+                            }
+                        }
+                        else if (tokens[i] is QuotedToken tokenQ)
+                            Logger.ErrorStrayQuoted(tokenQ);
+                        else if (tokens[i] is UnquotedToken tokenU)
+                        {
+                            if (tokenU.Value.StartsWith(ACCEPT))
+                            {
+                                // TODO cover all possible arguments, now it accepts only one trivial identifier
+                                var acc = new BcAccept();
+                                var name = tokenU.Value.Substring(ACCEPT.Length);
+                                acc.Accepted.Add(new BcIdRef(name));
+                                currSentence.Statements.Add(acc);
+                            }
+                            else
+                                Logger.ErrorNotImplementedYet(tokenU.Row, tokenU.Col, tokenU.Value);
+                        }
+                        else
+                            Logger.ErrorUnrecognisedToken(tokens[i]);
+                    }
+                    index++;
+                }
+                // final touch
+                if (currSentence.Statements.Count > 0)
+                    currParaCode.Sentences.Add(currSentence);
+                if (currParaCode.Sentences.Count > 0)
+                    prg.Paragraphs.Add(currParaName, currParaCode);
             }
             return prg;
         }
+
+        private enum ParserState { }
 
         private static void ConnectField(List<BcDataEntry> data, BcDataEntry f, uint lineno, int level, int occurs)
         {
@@ -165,6 +230,58 @@ namespace nursery.meta
             else
                 err(line, val);
             return 0;
+        }
+
+        //private static bool StartsWith(string s1, string s2)
+        //{
+        //}
+
+        private static List<Token> Tokenise(LineOfCode line)
+        {
+            List<Token> res = new List<Token>();
+            if (line is LineZoneA)
+                res.Add(new EOPToken());
+            string content = line.Content;
+            int i = 0;
+            StringBuilder sb = new StringBuilder();
+            while (i < content.Length)
+            {
+                switch (content[i])
+                {
+                    case ' ':
+                        i++;
+                        continue;
+                    case '.':
+                        if (sb.Length > 0)
+                        {
+                            res.Add(new UnquotedToken(sb));
+                            sb.Clear();
+                        }
+                        res.Add(new EOSToken());
+                        i++;
+                        continue;
+                    case '"':
+                        int j = content.IndexOf('"', i + 1);
+                        if (j < i)
+                            Logger.ErrorQuoteNotFound(line.Line, content);
+                        else
+                        {
+                            if (sb.Length >= 0)
+                                res.Add(new UnquotedToken(sb));
+                            sb.Clear();
+                            res.Add(new QuotedToken(content.Substring(i + 1, j - i)));
+                            i = j + 1;
+                        }
+                        continue;
+                    default:
+                        sb.Append(content[i++]);
+                        continue;
+                }
+            }
+            if (sb.Length > 0)
+                res.Add(new UnquotedToken(sb));
+
+            return res;
         }
 
         private static char FindNonSpace(string val, ref int i)

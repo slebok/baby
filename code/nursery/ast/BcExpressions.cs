@@ -6,6 +6,12 @@
 
     internal class BcIdRef : BcAtomic
     {
+        internal string Name;
+
+        internal BcIdRef(string x)
+        {
+            Name = x;
+        }
     }
 
     internal class BcLiteral : BcAtomic

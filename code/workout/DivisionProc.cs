@@ -1,9 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using nursery;
 using nursery.ast;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace workout
 {
@@ -29,13 +27,21 @@ namespace workout
                     X.A(X.D(X.DA_DIV)),
                     X.A(X.PIC(level, name, patt)),
                     X.A(X.D(X.PR_DIV)),
-                    X.A(X.ACCEPT(name))
+                    X.B(X.ACCEPT(name))
                 );
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(1, program.Data.Count);
             ValidateDataField(program.Data[0], level, name, patt);
             Assert.AreEqual(1, program.Paragraphs.Count);
+            var paraname = program.Paragraphs.Keys.First();
+            Assert.AreEqual("", paraname);
+            Assert.AreEqual(1, program.Paragraphs[paraname].Sentences.Count);
+            Assert.AreEqual(1, program.Paragraphs[paraname].Sentences[0].Statements.Count);
+            var stmt = program.Paragraphs[paraname].Sentences[0].Statements[0] as BcAccept;
+            Assert.IsNotNull(stmt);
+            Assert.AreEqual(1, stmt.Accepted.Count);
+            Assert.AreEqual(name, stmt.Accepted[0].Name);
         }
     }
 }

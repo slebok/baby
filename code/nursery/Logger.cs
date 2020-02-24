@@ -1,4 +1,5 @@
-﻿using System;
+﻿using nursery.ast;
+using System;
 
 namespace nursery
 {
@@ -7,6 +8,13 @@ namespace nursery
         internal static void Error(uint line, string message)
         {
             Console.WriteLine($"FATAL @ {line}: {message}");
+            //Environment.Exit(-1);
+            throw new Exception(message);
+        }
+
+        internal static void Error(uint line, uint col, string message)
+        {
+            Console.WriteLine($"FATAL @ {line}:{col}: {message}");
             //Environment.Exit(-1);
             throw new Exception(message);
         }
@@ -28,5 +36,17 @@ namespace nursery
 
         internal static void ErrorDataDivNotAView(uint line, string name)
             => Error(line, "A field cannot be connected to a view: " + name);
+
+        internal static void ErrorQuoteNotFound(uint line, string str)
+            => Error(line, "Unmatched quote in: " + str);
+
+        internal static void ErrorStrayQuoted(QuotedToken tokenQ)
+            => Error(tokenQ.Row, tokenQ.Col, "Stray quoted token: " + tokenQ.Value);
+
+        internal static void ErrorUnrecognisedToken(Token token)
+            => Error(token.Row, token.Col, "Unrecognised token: " + token.Value);
+
+        internal static void ErrorNotImplementedYet(uint row, uint col, string value)
+            => Error(row, col, "Not implemented yet: " + value);
     }
 }
