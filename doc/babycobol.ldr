@@ -690,85 +690,54 @@ statement PL/I.%XINCLUDE
 ////  // //  ///      //   //      //    ////  //    //
 
 statement BabyCOBOL.ACCEPT
-summary: read user input and store it in variables
-format: [17:] >> - "ACCEPT" - - Identifier - ^7 - ><
-remarks: <ul><li>the input is expected to obey the picture clause definition of the data fields being read</li></ul>
+@@accept.ldr
 
 statement BabyCOBOL.ADD
-summary: add two or more values together
-format: [33:] >> - "ADD" - - Atomic - ^5 - "TO" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
-remarks: <ul><li>all three arguments obey the rules of sufficient qualification</li><li>either of the first two arguments can be a literal</li><li>if the second argument is a literal, the third argument is mandatory</li><li>any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)</li></ul>
+@@add.ldr
 
 statement BabyCOBOL.ALTER
-summary: change the target of a GO TO statement
-format: [32.] >> - "ALTER" - ProcedureName - "TO" "PROCEED" "TO" - ProcedureName - ><
+@@alter.ldr
 
 statement BabyCOBOL.COPY
-summary: insert contents from a different file
-format: [37,] >> - "COPY" - FileName - #1 -22 >< &1 \2 "REPLACING" -2 Literal - "BY" - Literal - ^13 /2
-remarks: <ul><li>argument literals are quoted with <code>===</code> on each side, like this: <code>COPY REPLACING ===XXX=== BY ===YYY===</code></li></ul>
+@@copy.ldr
 
 statement BabyCOBOL.DISPLAY
-summary: display text on the terminal
-format: [40:] >> - "DISPLAY" -2 Atomic - "DELIMITED_BY" - #2 - "SIZE" -3 #3 &2 \ "SPACE" / &3 ^18 - #4 -12 >< &4 \ "WITH_NO_ADVANCING" /
-remarks: <ul><li><code>WITH NO ADVANCING</code> clause prints the text without appending newline character(s)</li><li>values <code>DELIMITED BY SPACE</code> are printed by converting them to strings and trimming empty spaces from both sides</li><li>values <code>DELIMITED BY SIZE</code> are printed by converting them to strings of fixed size corresponding to their defined (identifiers) or inferred (literals) type</li></ul>
+@@display.ldr
 
 statement BabyCOBOL.DIVIDE
-summary: divide a numeric value by other numbers
-format: [50:] >> - "DIVIDE" - Atomic - "INTO" - - Atomic - ^5 - #1 -12 #2 -15 >< &1 \ "GIVING" - Identifier / &2 \ "REMAINDER" - Identifier /
-remarks: <ul><li>all four arguments obey the rules of sufficient qualification</li><li>either of the first two arguments can be a literal</li><li>if the first argument is a literal, the third argument is mandatory</li><li>any of the four arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)</li></ul>
+@@divide.ldr
 
 statement BabyCOBOL.EVALUATE
-summary: branch to multiple locations based on several conditions
-format: [41\] >> - "EVALUATE" - AnyExpression - #1 -20 "END" - >< &1 \2 "WHEN" - #2 -2 Atomic - ^5 -3 Sentence - ^6 /2 &2 \ - "OTHER" - /
+@@evaluate.ldr
 
 statement BabyCOBOL.GO_TO
-summary: branch unconditionally within a program
-format: [17.] >> - "GO_TO" - ProcedureName - ><
-// todo: the CC paper also included GO TO ... OR ...
-remarks: <ul><li>branching outside an active <code>LOOP</code> terminates its iteration</li><li>branching outside paragraphs being <code>PERFORM</code>ed terminates the performance and forfeits the call place, acting as a redirected return</li><li>the argument can be a field name, possibly being reassigned at runtime with <code>MOVE</code></li></ul>
+@@goto.ldr
 
 statement BabyCOBOL.IF
-summary: branch conditionally within a program
-format: [47,] >> - "IF" - BooleanExpression - "THEN" -2 Statement - ^7 - #1 -13 #2 -6 >< &1 \2 "ELSE" -2 Statement - ^7 /2 &2 \ "END" /
-remarks: <ul><li>an <code>END</code>-less <code>IF</code> is terminated at the end of the sentence (by <code>.</code>)</li></ul>
+@@if.ldr
 
 statement BabyCOBOL.LOOP
-summary: structural execution of a sequence of commands
-format: [55⇓] >> - "LOOP" - #0 -44 "END" - >< &0 \2 - #1 - "VARYING" - #2 -8 #3 -9 #4 -8 #5 -8 - ^41 /2 &2 \ Identifier / &3 \ "FROM" - Atomic / &4 \ "TO" - Atomic / &5 \ "BY" - Atomic / &1 \3 "WHILE" - BooleanExpression -25 &1 \4 "UNTIL" - BooleanExpression -25 &1 \5 Statement -32 /5
+@@loop.ldr
 
 statement BabyCOBOL.MOVE
-summary: partial structural assignment
-format: [26\] >> - "MOVE" - #1 - Atomic -5 "TO" -2 Identifier - ^7 - >< &1 \ "HIGH-VALUES" - &1 \2 "LOW-VALUES" -2 &1 \3 "SPACES" -3 /3
-remarks: <ul><li>for numeric fields (defined with picture clauses without <code>A</code> nor <code>X</code>), BabyCOBOL's <code>MOVE SPACES</code> behaves like COBOL's <code>MOVE ZEROES</code></li><li>if the first argument is an identifier, BabyCOBOL's <code>MOVE</code> behaves like COBOL's <code>MOVE CORRESPONDING</code></li><li>if the first argument is a figurative value, it can lead to assigning vastly different values to second arguments depending on their individual types</li></ul>
+@@move.ldr
 
 statement BabyCOBOL.MULTIPLY
-summary: multiply two or more numeric values
-format: [33:] >> - "MULTIPLY" - Atomic - "BY" -2 Atomic - ^5 - #1 -12 >< &1 \ "GIVING" - Identifier /
-remarks: <ul><li>all three arguments obey the rules of sufficient qualification</li><li>either of the first two arguments can be a literal</li><li>if the second argument is a literal, the third argument is mandatory</li><li>any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)</li></ul>
+@@multiply.ldr
 
 statement BabyCOBOL.NEXT_SENTENCE
-summary: branch unconditionally to the beginning of the next sentence
-format: [13.] >> - "NEXT_SENTENCE" - ><
-syntax: The syntax of this statement is very straightforward, and hides only one subtlety: watch out for the dot after it. If there is a dot, as in "<code>NEXT SENTENCE.</code>", then the entire statement becomes meaningless and does nothing, since it is supposed to transfer control to the beginning of the next sentence, and dot ends the current sentence and signals the immediate start of the next one. So, the NEXT SENTENCE statement with a dot just represents and empty statement, called "no operation" elsewhere, while the NEXT SENTENCE without a dot works as defined below. So while in COBOL the NEXT SENTENCE statement can only be used as a special clause inside an IF statement, in BabyCOBOL it can be used anywhere, including facilitating an empty paragraph (which technically cannot be empty, but will exhibit no noticeable behaviour if only contains a dotted NEXT SENTENCE statement), similar to the role EXIT plays in COBOL.
-semantics: The problems of implementing the NEXT SENTENCE statement come from the clash between the hierarchical tree-like structure of the program and its flat textual structure. The official semantics of the NEXT SENTENCE statement is that it: <ul><li>Transfers control to the first statement of the next sentence (after the dot)</li><li>If the transfer takes the execution away from the current context of LOOP, PERFORM, etc, cleans up call stack contents, temporary variables and other local effects of the context being left behind</li></ul> If the AST already incorporates the information about sentences in addition to statements, then implementing the NEXT SENTENCE statement should not be too difficult: we need to prepare a possibly useful target label at the beginning of each sentence, and use it when needed. Due to BabyCOBOL's simplified design, this is the only possible way in the language to essentially GO TO within a paragraph.
-style: NEXT SENTENCE at the beginning of the paragraph can be used to comment out one of more of the immediately following statements, making them dead code without marking each line as an explicit comment.
+@@next.ldr
 
 statement BabyCOBOL.PERFORM
-summary: call a paragraph or section within the program
-format: [42.] >> - "PERFORM" - ProcedureName - #1 -15 #2 -10 >< &1 \ "THROUGH" - ProcedureName / &2 \ Atomic - "TIMES" /
+@@perform.ldr
 
 statement BabyCOBOL.SIGNAL
-summary: specify an error handler
-format: [24:] >> - "SIGNAL" - #1 - ProcedureName -2 "ON_ERROR" - >< &1 \ "OFF" -5 /
+@@signal.ldr
 
 statement BabyCOBOL.STOP
-summary: terminate the program
-format: [7.] >> - "STOP" - ><
+@@stop.ldr
 
 statement BabyCOBOL.SUBTRACT
-summary: subtract one or more numeric values from another value
-format: [34:] >> - "SUBTRACT" -2 Atomic - ^5 - "FROM" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
-remarks: <ul><li>all three arguments obey the rules of sufficient qualification</li><li>either of the first two arguments can be a literal</li><li>if the second argument is a literal, the third argument is mandatory</li><li>any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)</li></ul>
+@@subtract.ldr
 
 // TODO: other things like HIGH-VALUES

@@ -1,0 +1,3 @@
+summary: read user input and store it in variables
+format: [17:] >> - "ACCEPT" - - Identifier - ^7 - ><
+remarks: <ul><li>the input is expected to obey the picture clause definition of the data fields being read</li></ul>

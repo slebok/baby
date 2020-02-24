@@ -1,0 +1,3 @@
+summary: insert contents from a different file
+format: [37,] >> - "COPY" - FileName - #1 -22 >< &1 \2 "REPLACING" -2 Literal - "BY" - Literal - ^13 /2
+remarks: <ul><li>argument literals are quoted with <code>===</code> on each side, like this: <code>COPY REPLACING ===XXX=== BY ===YYY===</code></li></ul>

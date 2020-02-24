@@ -1,0 +1,2 @@
+summary: call a paragraph or section within the program
+format: [42.] >> - "PERFORM" - ProcedureName - #1 -15 #2 -10 >< &1 \ "THROUGH" - ProcedureName / &2 \ Atomic - "TIMES" /

@@ -1,0 +1,2 @@
+summary: change the target of a GO TO statement
+format: [32.] >> - "ALTER" - ProcedureName - "TO" "PROCEED" "TO" - ProcedureName - ><

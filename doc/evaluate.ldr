@@ -1,0 +1,2 @@
+summary: branch to multiple locations based on several conditions
+format: [41\] >> - "EVALUATE" - AnyExpression - #1 -20 "END" - >< &1 \2 "WHEN" - #2 -2 Atomic - ^5 -3 Sentence - ^6 /2 &2 \ - "OTHER" - /
