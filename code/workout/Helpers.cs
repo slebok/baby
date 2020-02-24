@@ -1,4 +1,7 @@
-﻿namespace workout
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using nursery.ast;
+
+namespace workout
 {
     internal static class X
     {
@@ -29,5 +32,17 @@
 
         internal static string VIEW(int level, string name)
             => $"{level:00} {name}.";
+
+        internal static string ACCEPT(string name)
+            => $"ACCEPT {name}.";
+
+        internal static void ValidateDataField(BcDataEntry data, int level, string name, string patt)
+        {
+            var field = data as BcDataField;
+            Assert.IsNotNull(field);
+            Assert.AreEqual(level, field.Level);
+            Assert.AreEqual(name, field.Name);
+            Assert.AreEqual(patt, field.Pattern);
+        }
     }
 }

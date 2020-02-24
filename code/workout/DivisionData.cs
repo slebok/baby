@@ -7,15 +7,6 @@ namespace workout
     [TestClass]
     public class DivisionData
     {
-        private void ValidateDataField(BcDataEntry data, int level, string name, string patt)
-        {
-            var field = data as BcDataField;
-            Assert.IsNotNull(field);
-            Assert.AreEqual(level, field.Level);
-            Assert.AreEqual(name, field.Name);
-            Assert.AreEqual(patt, field.Pattern);
-        }
-
         [TestMethod, TestCategory("parser")]
         public void TopLevelPic()
         {
@@ -29,7 +20,7 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(1, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name, patt);
+            X.ValidateDataField(program.Data[0], level, name, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -45,7 +36,7 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(1, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name, patt);
+            X.ValidateDataField(program.Data[0], level, name, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -62,8 +53,26 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(2, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name1, patt1);
-            ValidateDataField(program.Data[1], level, name2, patt2);
+            X.ValidateDataField(program.Data[0], level, name1, patt1);
+            X.ValidateDataField(program.Data[1], level, name2, patt2);
+        }
+
+        [TestMethod, TestCategory("parser")]
+        public void TopLevelPicLike()
+        {
+            int level = 3;
+            string name1 = "LY";
+            string patt1 = "S9(10)V9(2)";
+            BcProgram program = BackDoor.Parse(
+                    X.A(X.D(X.DA_DIV)),
+                    X.A(X.PIC(level, name1, patt1)),
+                    X.A("03 UNLIKELY.") // should be perceived as UN LIKE LY where LY is a PIC above
+                );
+            Assert.IsNotNull(program);
+            Assert.AreEqual(0, program.Identifications.Count);
+            Assert.AreEqual(2, program.Data.Count);
+            X.ValidateDataField(program.Data[0], level, name1, patt1);
+            X.ValidateDataField(program.Data[1], level, "UN", patt1);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -80,8 +89,8 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(2, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name1, patt);
-            ValidateDataField(program.Data[1], level, name2, patt);
+            X.ValidateDataField(program.Data[0], level, name1, patt);
+            X.ValidateDataField(program.Data[1], level, name2, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -99,9 +108,9 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(3, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name1, patt);
-            ValidateDataField(program.Data[1], level, name2, patt);
-            ValidateDataField(program.Data[2], level, name3, patt);
+            X.ValidateDataField(program.Data[0], level, name1, patt);
+            X.ValidateDataField(program.Data[1], level, name2, patt);
+            X.ValidateDataField(program.Data[2], level, name3, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -118,8 +127,8 @@ namespace workout
             Assert.IsNotNull(program);
             Assert.AreEqual(0, program.Identifications.Count);
             Assert.AreEqual(2, program.Data.Count);
-            ValidateDataField(program.Data[0], level, name1, patt);
-            ValidateDataField(program.Data[1], level, name2, patt);
+            X.ValidateDataField(program.Data[0], level, name1, patt);
+            X.ValidateDataField(program.Data[1], level, name2, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -141,7 +150,7 @@ namespace workout
             Assert.AreEqual(level1, view.Level);
             Assert.AreEqual(name1, view.Name);
             Assert.AreEqual(1, view.Inners.Count);
-            ValidateDataField(view.Inners[0], level2, name2, patt);
+            X.ValidateDataField(view.Inners[0], level2, name2, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -163,7 +172,7 @@ namespace workout
             Assert.AreEqual(level1, view.Level);
             Assert.AreEqual(name1, view.Name);
             Assert.AreEqual(1, view.Inners.Count);
-            ValidateDataField(view.Inners[0], level2, name2, patt);
+            X.ValidateDataField(view.Inners[0], level2, name2, patt);
         }
 
         [TestMethod, TestCategory("parser")]
@@ -185,7 +194,7 @@ namespace workout
             Assert.AreEqual(level1, view.Level);
             Assert.AreEqual(name1, view.Name);
             Assert.AreEqual(1, view.Inners.Count);
-            ValidateDataField(view.Inners[0], level2, name2, patt);
+            X.ValidateDataField(view.Inners[0], level2, name2, patt);
         }
     }
 }

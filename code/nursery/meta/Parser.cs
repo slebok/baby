@@ -54,6 +54,8 @@ namespace nursery.meta
                 while (index < lines.Count && !IsZoneAExact(lines[index], PROCEDURE_DIVISION))
                 {
                     string val = lines[index].Content.Replace(" ", "");
+                    if (val[val.Length - 1] == '.')
+                        val = val.Substring(0, val.Length - 1);
                     uint lineNo = lines[index].Line;
                     int level = GetIntOrComplain(lineNo, val.Substring(0, 2), Logger.ErrorDataDivWrongLevel);
                     int occurs = 1;
