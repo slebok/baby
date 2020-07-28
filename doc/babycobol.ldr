@@ -1,11 +1,11 @@
-this is BabyCOBOL
+this is BabyCobol
 CSS is ../www/babycobol.css
 logo is ../www/babycobol.png
-welcome is BabyCOBOL is a project in language design aimed at creating a language that is, on one hand, small enough to be quickly implementable (fully or partially) within any framework that can support its features, and, on the other hand, complex enough to cover typical problems of legacy language processing. If you learn how to compile <a href="http://www.cs.tufts.edu/~sguyer/classes/comp181-2006/minijava.html">MiniJava</a>, you stand a good chance of implementing a reasonably good compiler for any contemporary programming language. If you show how your language extension works on <a href="https://doi.org/10.1145/503502.503505">Featherweight Java</a>, it has a good chance of being applicable to any reasonable modern object-oriented programming language. If you can handle <a href="http://slebok.github.io/baby/">BabyCOBOL</a> with your tool, you are ready to face the challenges of software modernisation, codebase migration and legacy language processing in general. At this day and age, being future proof means being able to handle software of the past.
-seen at Bernd Fischer, <em>Breaking Parsers: Mutation-based Generation of Programs with Guaranteed Syntax Errors</em>, IFIP TC-2 WG 2.11 on <a href="https://wiki.hh.se/wg211/index.php/WG211/M20Schedule">Program Generation</a>, invited presentation, Sorbonne Université, 20 February 2020 (first implementation of BabyCOBOL in Prolog capable of generating hundreds of BabyCOBOL programs)
-seen at Vadim Zaytsev, <em>BabyCOBOL: The Challenge to Program Generation Tool Developers</em>, IFIP TC-2 WG 2.11 on <a href="https://wiki.hh.se/wg211/index.php/WG211/M20Zaytsev">Program Generation</a>, invited presentation, Sorbonne Université, 17 February 2020
-seen at Vadim Zaytsev, <em>Legacy and Software Renovation</em>, <a href="https://datanose.nl/#course[77550]">Software Evolution</a> guest lecture, Universiteit van Amsterdam, 9 December 2019
-seen at Vadim Zaytsev, <em>Blind Men and a Room Full of Elephants</em>, <a href="http://soft.vub.ac.be/benevol2019/#secondKeynote">BENEVOL 2019</a> keynote, Vrije Universiteit Brussel (VUB), 28 November 2019
+welcome is BabyCobol is a project in language design aimed at creating a language that is, on one hand, small enough to be quickly implementable (fully or partially) within any framework that can support its features, and, on the other hand, complex enough to cover typical problems of legacy language processing. If you learn how to compile <a href="http://www.cs.tufts.edu/~sguyer/classes/comp181-2006/minijava.html">MiniJava</a>, you stand a good chance of implementing a reasonably good compiler for any contemporary programming language. If you show how your language extension works on <a href="https://doi.org/10.1145/503502.503505">Featherweight Java</a>, it has a good chance of being applicable to any reasonable modern object-oriented programming language. If you can handle <a href="http://slebok.github.io/baby/">BabyCobol</a> with your tool and with your skills, you are ready to face the challenges of software modernisation, codebase migration and legacy language processing in general. At this day and age, being future proof means being able to handle software of the past.
+seen at <a href="http://www.cs.sun.ac.za/~bfischer/index.html">Bernd Fischer</a>, <em>Breaking Parsers: Mutation-based Generation of Programs with Guaranteed Syntax Errors</em>, IFIP TC-2 WG 2.11 on <a href="https://wiki.hh.se/wg211/index.php/WG211/M20Schedule">Program Generation</a>, invited presentation, Sorbonne Université, 20 February 2020 (first implementation of BabyCobol in Prolog capable of generating hundreds of BabyCobol programs)
+seen at <a href="http://grammarware.net">Vadim Zaytsev</a>, <em>BabyCobol: The Challenge to Program Generation Tool Developers</em>, IFIP TC-2 WG 2.11 on <a href="https://wiki.hh.se/wg211/index.php/WG211/M20Zaytsev">Program Generation</a>, invited presentation, Sorbonne Université, 17 February 2020
+seen at <a href="http://grammarware.net">Vadim Zaytsev</a>, <em>Legacy and Software Renovation</em>, <a href="https://datanose.nl/#course[77550]">Software Evolution</a> guest lecture, Universiteit van Amsterdam, 9 December 2019
+seen at <a href="http://grammarware.net">Vadim Zaytsev</a>, <em>Blind Men and a Room Full of Elephants</em>, <a href="http://soft.vub.ac.be/benevol2019/#secondKeynote">BENEVOL 2019</a> keynote, Vrije Universiteit Brussel (VUB), 28 November 2019
 
 source CLIST is IBM SA32-0978-00, z/OS TSO/E CLISTs Version 2 Release 1, 1988–2013
 source REXX is IBM SA32-0982-00, z/OS TSO/E REXX User's Guide Version 2 Release 1, 1988–2013
@@ -514,7 +514,7 @@ statement RPG.MVR became DIVIDE
 summary: calculate a reminder of a division
 statement RPG.NEXT
 summary: schedules the next READ/CHAIN/... operation to read from a particular source
-// NB: same as BabyCOBOL OCCURS
+// NB: same as BabyCobol OCCURS
 statement RPG.OCCUR
 summary: specify the occurrence of a data structure
 statement RPG.ON-ERROR became SIGNAL
@@ -689,55 +689,55 @@ statement PL/I.%XINCLUDE
  ///   /////  ////    ////  ///     ////  //     //   //
 ////  // //  ///      //   //      //    ////  //    //
 
-statement BabyCOBOL.ACCEPT
+statement BabyCobol.ACCEPT
 @@accept.ldr
 
-statement BabyCOBOL.ADD
+statement BabyCobol.ADD
 @@add.ldr
 
-statement BabyCOBOL.ALTER
+statement BabyCobol.ALTER
 @@alter.ldr
 
-statement BabyCOBOL.COPY
+statement BabyCobol.COPY
 @@copy.ldr
 
-statement BabyCOBOL.DISPLAY
+statement BabyCobol.DISPLAY
 @@display.ldr
 
-statement BabyCOBOL.DIVIDE
+statement BabyCobol.DIVIDE
 @@divide.ldr
 
-statement BabyCOBOL.EVALUATE
+statement BabyCobol.EVALUATE
 @@evaluate.ldr
 
-statement BabyCOBOL.GO_TO
+statement BabyCobol.GO_TO
 @@goto.ldr
 
-statement BabyCOBOL.IF
+statement BabyCobol.IF
 @@if.ldr
 
-statement BabyCOBOL.LOOP
+statement BabyCobol.LOOP
 @@loop.ldr
 
-statement BabyCOBOL.MOVE
+statement BabyCobol.MOVE
 @@move.ldr
 
-statement BabyCOBOL.MULTIPLY
+statement BabyCobol.MULTIPLY
 @@multiply.ldr
 
-statement BabyCOBOL.NEXT_SENTENCE
+statement BabyCobol.NEXT_SENTENCE
 @@next.ldr
 
-statement BabyCOBOL.PERFORM
+statement BabyCobol.PERFORM
 @@perform.ldr
 
-statement BabyCOBOL.SIGNAL
+statement BabyCobol.SIGNAL
 @@signal.ldr
 
-statement BabyCOBOL.STOP
+statement BabyCobol.STOP
 @@stop.ldr
 
-statement BabyCOBOL.SUBTRACT
+statement BabyCobol.SUBTRACT
 @@subtract.ldr
 
 // TODO: other things like HIGH-VALUES
