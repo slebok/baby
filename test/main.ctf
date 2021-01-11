@@ -1,0 +1,20 @@
+#ext bc
+#try
+      * BabyCobol Nursery
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. $ID$.
+           AUTHOR. Vadim Zaytsev.
+           DATE-WRITTEN. $YEAR$-$MONTH$-$DAY$.
+#if def
+       DATA DIVISION.
+       01 WORKING-STORAGE-AREA.
+#for def
+          03 $LHS$ PICTURE IS $RHS$.
+#end
+#end
+       PROCEDURE DIVISION.
+#for run
+           $LINE$
+#end
+           STOP.
+#end

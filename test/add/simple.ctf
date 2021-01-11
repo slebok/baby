@@ -1,0 +1,6 @@
+#use $X$ := 0 | 1 | -1 | 42
+#use $Y$ := 0 | 1 | -1 | 42
+#def Z := 99
+#run ADD $X$ TO $Y$ GIVING Z
+#run DISPLAY X
+#get $X + Y$
