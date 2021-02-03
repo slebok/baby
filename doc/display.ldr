@@ -1,3 +1,3 @@
 summary: display text on the terminal
-format: [40:] >> - "DISPLAY" -2 Atomic - "DELIMITED_BY" - #2 - "SIZE" -3 #3 &2 \ "SPACE" / &3 ^18 - #4 -12 >< &4 \ "WITH_NO_ADVANCING" /
+format: [42,] >> - "DISPLAY" -2 Atomic - #1 -12 &1 \ "DELIMITED_BY" - #2 - "SIZE" -2 / #3 &2 \ "SPACE" / &3 -3 ^20 - #4 -12 >< &4 \ "WITH_NO_ADVANCING" /
 remarks: <ul><li><code>WITH NO ADVANCING</code> clause prints the text without appending newline character(s)</li><li>values <code>DELIMITED BY SPACE</code> are printed by converting them to strings and trimming empty spaces from both sides</li><li>values <code>DELIMITED BY SIZE</code> are printed by converting them to strings of fixed size corresponding to their defined (identifiers) or inferred (literals) type</li></ul>
