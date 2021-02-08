@@ -1,3 +1,5 @@
 summary: branch conditionally within a program
 format: [47,] >> - "IF" - BooleanExpression - "THEN" -2 Statement - ^7 - #1 -13 #2 -6 >< &1 \2 "ELSE" -2 Statement - ^7 /2 &2 \ "END" /
-remarks: <ul><li>an <code>END</code>-less <code>IF</code> is terminated at the end of the sentence (by <code>.</code>)</li></ul>
+remarks: <ul>
+	an <code>END</code>-less <code>IF</code> is terminated at the end of the sentence (by <code>.</code>)
+</ul>

@@ -1,3 +1,8 @@
 summary: subtract one or more numeric values from another value
 format: [34:] >> - "SUBTRACT" -2 Atomic - ^5 - "FROM" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
-remarks: <ul><li>all three arguments obey the rules of sufficient qualification</li><li>either of the first two arguments can be a literal</li><li>if the second argument is a literal, the third argument is mandatory</li><li>any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)</li></ul>
+remarks: <ul>
+	* all three arguments obey the rules of sufficient qualification
+	* either of the first two arguments can be a literal
+	* if the second argument is a literal, the third argument is mandatory
+	* any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)
+</ul>

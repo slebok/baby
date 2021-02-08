@@ -1,4 +1,8 @@
 summary: branch unconditionally within a program
 format: [17.] >> - "GO_TO" - ProcedureName - ><
 // todo: the CC paper also included GO TO ... OR ...
-remarks: <ul><li>branching outside an active <code>LOOP</code> terminates its iteration</li><li>branching outside paragraphs being <code>PERFORM</code>ed terminates the performance and forfeits the call place, acting as a redirected return</li><li>the argument can be a field name, possibly being reassigned at runtime with <code>MOVE</code></li></ul>
+remarks: <ul>
+	* branching outside an active <code>LOOP</code> terminates its iteration
+	* branching outside paragraphs being <code>PERFORM</code>ed terminates the performance and forfeits the call place, acting as a redirected return
+	* the argument can be a field name, possibly being reassigned at runtime with <code>MOVE</code>
+</ul>
