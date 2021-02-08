@@ -1,4 +1,4 @@
-summary: insert contents from a different file
+summary: an instruction to insert contents from a different file
 format: [37,] >> - "COPY" - FileName - #1 -22 >< &1 \2 "REPLACING" -2 Literal - "BY" - Literal - ^13 /2
 remarks: <ul>
 	* argument literals are quoted with <code>===</code> on each side, like this: <code>COPY FILENAME REPLACING ===XXX=== BY ===YYY===</code>

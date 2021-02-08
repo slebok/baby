@@ -1,2 +1,2 @@
-summary: terminate the program
+summary: an instruction to terminate the program
 format: [7.] >> - "STOP" - ><

@@ -693,11 +693,11 @@ statement PL/I.%XINCLUDE
  ///   /////  ////    ////  ///     ////  //     //   //
 ////  // //  ///      //   //      //    ////  //    //
 
-statement BabyCobol.ACCEPT
-@@accept.ldr
-
 statement BabyCobol.ADD
 @@add.ldr
+
+statement BabyCobol.ACCEPT
+@@accept.ldr
 
 statement BabyCobol.ALTER
 @@alter.ldr

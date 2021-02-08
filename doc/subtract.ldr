@@ -1,4 +1,4 @@
-summary: subtract one or more numeric values from another value
+summary: a statement to subtract one or more numeric values from another value
 format: [34:] >> - "SUBTRACT" -2 Atomic - ^5 - "FROM" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
 remarks: <ul>
 	* all three arguments obey the rules of sufficient qualification

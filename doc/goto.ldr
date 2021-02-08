@@ -1,4 +1,4 @@
-summary: branch unconditionally within a program
+summary: a statement to branch unconditionally to a paragraph within a program
 format: [17.] >> - "GO_TO" - ProcedureName - ><
 // todo: the CC paper also included GO TO ... OR ...
 remarks: <ul>

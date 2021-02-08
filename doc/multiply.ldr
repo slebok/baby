@@ -1,4 +1,4 @@
-summary: multiply two or more numeric values
+summary: a statement to multiply two or more numeric values
 format: [33:] >> - "MULTIPLY" - Atomic - "BY" -2 Atomic - ^5 - #1 -12 >< &1 \ "GIVING" - Identifier /
 remarks: <ul>
 	* all three arguments obey the rules of sufficient qualification

@@ -1,2 +1,2 @@
-summary: specify an error handler
+summary: an instruction to specify an error handler
 format: [24:] >> - "SIGNAL" - #1 - ProcedureName -2 "ON_ERROR" - >< &1 \ "OFF" -5 /
