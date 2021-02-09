@@ -1,0 +1,22 @@
+summary: the second division of a program
+format: [61,] >> - "DATA_DIVISION." -2 Level - Identifier - #1 -15 #2 -19 "." - ^47 - >< &1 \ "PICTURE_IS" - Representation - &1 \2 "LIKE" - Identifier -5 /2 &2 - \ "OCCURS" - IntegerLiteral - "TIMES" /
+remarks: <ul>
+	* unlike the preceding <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, this division is optional and can be skipped if there is no data to declare
+	* each entry declares a field (an elementary variable) or a record (a composite structure)
+	* the level numbers show hierarchy: entries with higher level numbers are included in the record defined above them at a lower level number
+	* the <code>PICTURE</code> clause defines a field, specifying its format as a representation string, containing the following characters: <ul>
+		* <code>9</code> — any numerical digit 
+		* <code>A</code> — any alphabetic character or whitespace
+		* <code>X</code> — any single character
+		* <code>Z</code> — a leading digit, disappearing into space if zero
+		* <code>S</code> — a sign, positive or negative, space is treated as a plus
+		* <code>V</code> — a decimal separator (usually . or ,)
+		* the <code>S</code> and <code>V</code> symbols may occur once in the representation string
+	<!-- --></ul>
+	* the <code>LIKE</code> clause copies the type from elsewhere, and thus declares either a field (by essentially copying its representation string) or a record (by copying its entire structure)
+	* if neither the <code>PICTURE</code> nor the <code>LIKE</code> clause are used, such an entry defines a record
+	* the <code>OCCURS</code> clause turns an individual record or field into an array of them
+	* <code>LIKE</code> inherits the basic type, not the occurring one
+	* comment lines and <a href="copy.html"><code>COPY</code></a> instructions are allowed inside this division as well
+	* the data division can be followed by the <a href="procedure.html"><code>PROCEDURE DIVISION</code></a>	
+</ul>

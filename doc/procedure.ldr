@@ -1,0 +1,10 @@
+summary: the code-containing division in a program
+format: [38⇓] Division >> - "PROCEDURE_DIVISION." - #1 -11 Paragraph - ^7 -2 >< &1 \2 - Sentence -2 ^7 /2 $4 Paragraph >> - Identifier - "." -2 Sentence - ^6 - >< $3 Sentence >> -2 Statement - ^7 - "." - ><
+remarks: <ul>
+	* the procedure division follows either the <a href="data.html"><code>DATA DIVISION</code></a>, if it was present, or the <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, and is the last division in a BabyCobol program
+	* the procedure division consists of paragraphs, the first of which can essentially remain unnamed
+	* each paragraph has a name that can be used in <a href="alter.html"><code>ALTER</code></a>, <a href="goto.html"><code>GO TO</code></a> and <a href="perform.html"><code>PERFORM</code></a> statements, and a non-empty list of sentences
+	* each sentence is a list of statements terminated by a dot
+	* each statement can be <a href="accept.html"><code>ACCEPT</code></a>, <a href="add.html"><code>ADD</code></a>, <a href="alter.html"><code>ALTER</code></a>, <a href="copy.html"><code>COPY</code></a>, <a href="display.html"><code>DISPLAY</code></a>, <a href="divide.html"><code>DIVIDE</code></a>, <a href="evaluate.html"><code>EVALUATE</code></a>, <a href="goto.html"><code>GO TO</code></a>, <a href="if.html"><code>IF</code></a>, <a href="loop.html"><code>LOOP</code></a>, <a href="move.html"><code>MOVE</code></a>, <a href="multiply.html"><code>MULTIPLY</code></a>, <a href="nextsentence.html"><code>NEXT SENTENCE</code></a>, <a href="perform.html"><code>PERFORM</code></a>, <a href="signal.html"><code>SIGNAL</code></a>, <a href="stop.html"><code>STOP</code></a> or <a href="subtract.html"><code>SUBTRACT</code></a>
+	* execution of statements proceeds sequentially from the start of the division downwards, overstepping boundaries of sentences and paragraphs, until either the end of the file is reached or a <a href="stop.html"><code>STOP</code></a> statement is encountered
+</ul>

@@ -205,6 +205,16 @@ summary: read files and access other sources
   ////  // //  ///      //   ////    ///    ////  ////  ////
  ///   /////  ////    ////  ///     ////   ///    //    //
 ////  // //  ///      //   //      // //  ////  ////  ////
+statement COBOL.DIVISION became DIVISION
+summary: the top level unit of any program
+statement COBOL.IDENTIFICATION_DIVISION became IDENTIFICATION_DIVISION
+summary: the top level program unit with the program ID and other metadata
+statement COBOL.ENVIRONMENT_DIVISION
+summary: the top level program unit specifying input and output files
+statement COBOL.DATA_DIVISION became DATA_DIVISION
+summary: the top level program unit with variable definitions
+statement COBOL.PROCEDURE_DIVISION became PROCEDURE_DIVISION
+summary: the top level program unit with executable code
 statement COBOL.ACCEPT became ACCEPT
 summary: accept user data as the new value of an identifier
 statement COBOL.ADD became ADD
@@ -636,54 +646,79 @@ statement PL/I.BEGIN
 summary: start a block of statements
 statement PL/I.CLOSE
 summary: dissociate a file from its data set
-statement PL/I.DECLARE
-statement PL/I.DEFINE
+statement PL/I.DECLARE became DATA_DIVISION
+summary: declare a variable and specify its attributes
+statement PL/I.DEFINE became DATA_DIVISION
+summary: define a structure or an alias for the data type
 statement PL/I.DEFAULT
+summary: specify data attribute defaults
 statement PL/I.DELAY
+summary: suspend execution for some time
 statement PL/I.DELETE
+summary: delete a record from an update file
 statement PL/I.DETACH
-statement PL/I.DISPLAY
+summary: free system resources
+statement PL/I.DISPLAY became DISPLAY
+summary: display a message on user's screen
 statement PL/I.DO became LOOP
-statement PL/I.END became УТВ
+summary: repeat a group of statements under certain conditions
+statement PL/I.END became END
+summary: end one or more blocks or groups of statements
 statement PL/I.ENTRY
-statement PL/I.EXIT
+summary: specify a secondary entry point to a procedure
+statement PL/I.EXIT became STOP
+summary: stop the current thread
 statement PL/I.FETCH
+summary: check the main storage for named procedures
 statement PL/I.FLUSH
 summary: flush buffers associated with an output file
 statement PL/I.FORMAT
+summary: specify a format list to be used in stream data transmissions
 statement PL/I.FREE
+summary: free the storage allocated for based and controlled variables
 statement PL/I.GET
+summary: assign parts of the stream data transmission to variables
 statement PL/I.GO_TO became GO_TO
+summary: transfer control to a labelled statement
 statement PL/I.IF became IF
+summary: branch conditionally within a program
 statement PL/I.%INCLUDE became COPY
+summary: incorporate external text into the source program
 statement PL/I.ITERATE
+summary: continue a fresh iteration in a loop
 statement PL/I.LEAVE
-statement PL/I.%LINE
+summary: break from a loop
 statement PL/I.LOCATE
-statement PL/I.%NOPRINT
-statement PL/I.%NOTE
+summary: allocate storage within an output buffer
 statement PL/I.; became NEXT_SENTENCE
-statement PL/I.ON
+statement PL/I.ON became SIGNAL
+summary: define a handler for an established condition
 statement PL/I.OPEN
 summary: associate a file with a data set
 statement PL/I.OTHERWISE became EVALUATE
 statement PL/I.PACKAGE
-statement PL/I.%PAGE
-statement PL/I.%POP
-statement PL/I.%PRINT
+summary: define a package
 statement PL/I.%PROCESS
-statement PL/I.*PROCESS
+summary: override compiler options
 statement PL/I.%PUSH
+summary: save the %PRINT status in a pushdown stack
 statement PL/I.PUT
+summary: transmit values of local variables into the stream of data
 statement PL/I.READ
 statement PL/I.RELEASE
 statement PL/I.RESIGNAL
+summary: terminate an ON-unit and start a new one
+statement PL/I.RETURN
+summary: terminates execution of the subroutine or function procedure and returns control
 statement PL/I.REVERT
+summary: terminate an ON-unit
 statement PL/I.REWRITE
 statement PL/I.SELECT
 statement PL/I.SIGNAL
+summary: verify the action of an ON-unit
 statement PL/I.%SKIP
-statement PL/I.STOP
+statement PL/I.STOP became STOP
+summary: stops the current application
 statement PL/I.WAIT
 statement PL/I.WHEN became EVALUATE
 statement PL/I.WRITE
@@ -692,6 +727,18 @@ statement PL/I.%XINCLUDE
   ////  // //  ///      //   ////    ////  //      //  //
  ///   /////  ////    ////  ///     ////  //     //   //
 ////  // //  ///      //   //      //    ////  //    //
+
+statement BabyCobol.DIVISION
+@@division.ldr
+
+statement BabyCobol.IDENTIFICATION_DIVISION
+@@identification.ldr
+
+statement BabyCobol.DATA_DIVISION
+@@data.ldr
+
+statement BabyCobol.PROCEDURE_DIVISION
+@@procedure.ldr
 
 statement BabyCobol.ADD
 @@add.ldr
