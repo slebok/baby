@@ -1,5 +1,6 @@
 summary: a statement to branch conditionally to a paragraph within a program
 format: [47,] >> - "IF" - BooleanExpression - "THEN" -2 Statement - ^7 - #1 -13 #2 -6 >< &1 \2 "ELSE" -2 Statement - ^7 /2 &2 \ "END" /
 remarks: <ul>
-	an <code>END</code>-less <code>IF</code> is terminated at the end of the sentence (by <code>.</code>)
+	* an <code>END</code>-less <code>IF</code> is terminated at the end of the sentence (by <code>.</code>) or by the start of the next statement
+	* note that both branches of the <code>IF</code> consist of statements, not sentences, so dots inside the entire <code>IF</code> construct are not allowed
 </ul>
