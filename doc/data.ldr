@@ -4,6 +4,8 @@ remarks: <ul>
 	* unlike the preceding <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, this division is optional and can be skipped if there is no data to declare
 	* each entry declares a field (an elementary variable) or a record (a composite structure)
 	* the level numbers show hierarchy: entries with higher level numbers are included in the record defined above them at a lower level number
+	* each level number is exactly two digits long
+	* the level numbers can never go below the level number of the first entry (which is traditionally <code>01</code>, but doesn’t have to be)
 	* the <code>PICTURE</code> clause defines a field, specifying its format as a representation string, containing the following characters: <ul>
 		* <code>9</code> — any numerical digit 
 		* <code>A</code> — any alphabetic character or whitespace
