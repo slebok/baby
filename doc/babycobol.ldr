@@ -16,6 +16,7 @@ source REXX is IBM SA32-0982-00, z/OS TSO/E REXX User's Guide Version 2 Release 
 source FORTRAN is The FORTRAN Automatic Coding System for the IBM 704 EDPM, October 15, 1956
 source COBOL is IBM SC23-8528-01, Enterprise COBOL for z/OS Language Reference Version 4 Release 2, 1991–2009
 source RPG is IBM SC09-2508-09, IBM i Version 7.2, Programming IBM Rational Development Studio for i ILE RPG Reference, 1994–2013
+source AppBuilder is Castle / CSL — Specification, Version 1.97.0.0, 20 May 2020, Raincode
 
   ////  // //  ///      //   ////    //  //  ////   //   ///   ////  /// 
  ///   /////  ////    ////  ///     //////  ///   ////  ////  ///   ////
@@ -727,6 +728,41 @@ statement PL/I.%XINCLUDE
   ////  // //  ///      //   ////    ////  //      //  //
  ///   /////  ////    ////  ///     ////  //     //   //
 ////  // //  ///      //   //      //    ////  //    //
+
+statement AppBuilder.DCL became DATA_DIVISION
+summary: a declaration block for local fields and views
+statement AppBuilder.MAP became MOVE
+summary: name-based deep structural asssignment
+statement AppBuilder.OVERLAY
+summary: serialise one data structure bytewise over another structure
+statement AppBuilder.CASEOF became EVALUATE
+summary: branch to multiple locations based on several conditions
+statement AppBuilder.IF became IF
+summary: branch conditionally within a program
+statement AppBuilder.HANDLER
+summary: assign a handler to an event
+statement AppBuilder.USE became COPY
+summary: call a rule or a component from into another rule
+statement AppBuilder.DO became LOOP
+summary: a multi-purpose loop statement with a number of detachable clauses
+statement AppBuilder.SQL
+summary: execute an embedded SQL query
+statement AppBuilder.CLEAR became MOVE
+summary: return a field or a view to its freshly initialised state
+statement AppBuilder.PERFORM became PERFORM
+summary: call a local procedure
+statement AppBuilder.RETURN became STOP
+summary: terminate the execution of a rule
+statement AppBuilder.PROC_RETURN
+summary: terminate the execution of a local procedure
+statement AppBuilder.SET became MOVE
+summary: an alternative assignment statement
+statement AppBuilder.CONVERSE
+summary: engage in user interaction
+
+  ////  // //  ///      //   ////    ///// //// //// ///   //  // // //   ///  //// ///
+ ///   /////  ////    ////  ///     //-// //// //// //_// //  // // //   //// ///  ////
+////  // //  ///      //   //      // // //   //   //_// ////// // //// ///  //// // //
 
 statement BabyCobol.DIVISION
 @@division.ldr
