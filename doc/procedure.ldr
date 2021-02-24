@@ -1,7 +1,7 @@
 summary: the code-containing division in a program
 format: [38⇓] Division >> - "PROCEDURE_DIVISION." - #1 -11 Paragraph - ^7 -2 >< &1 \2 - Sentence -2 ^7 /2 $4 Paragraph >> - Identifier - "." -2 Sentence - ^6 - >< $3 Sentence >> -2 Statement - ^7 - "." - ><
 remarks: <ul>
-	* the procedure division follows either the <a href="data.html"><code>DATA DIVISION</code></a>, if it was present, or the <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, and is the last division in a BabyCobol program
+	* the procedure division follows either the <a href="datadivision.html"><code>DATA DIVISION</code></a>, if it was present, or the <a href="identificationdivision.html"><code>IDENTIFICATION DIVISION</code></a>, and is the last division in a BabyCobol program
 	* the procedure division consists of paragraphs, the first of which can essentially remain unnamed
 	* each paragraph has a name that can be used in <a href="alter.html"><code>ALTER</code></a>, <a href="goto.html"><code>GO TO</code></a> and <a href="perform.html"><code>PERFORM</code></a> statements, and a non-empty list of sentences
 	* each sentence is a list of statements terminated by a dot

@@ -1,7 +1,7 @@
 summary: the second division of a program
 format: [61,] >> - "DATA_DIVISION." -2 Level - Identifier - #1 -15 #2 -19 "." - ^47 - >< &1 \ "PICTURE_IS" - Representation - &1 \2 "LIKE" - Identifier -5 /2 &2 - \ "OCCURS" - IntegerLiteral - "TIMES" /
 remarks: <ul>
-	* unlike the preceding <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, this division is optional and can be skipped if there is no data to declare
+	* unlike the preceding <a href="identificationdivision.html"><code>IDENTIFICATION DIVISION</code></a>, this division is optional and can be skipped if there is no data to declare
 	* each entry declares a field (an elementary variable) or a record (a composite structure)
 	* the level numbers show hierarchy: entries with higher level numbers are included in the record defined above them at a lower level number
 	* each level number is exactly two digits long
@@ -20,5 +20,5 @@ remarks: <ul>
 	* the <code>OCCURS</code> clause turns an individual record or field into an array of them
 	* <code>LIKE</code> inherits the basic type, not the occurring one
 	* comment lines and <a href="copy.html"><code>COPY</code></a> instructions are allowed inside this division as well
-	* the data division can be followed by the <a href="procedure.html"><code>PROCEDURE DIVISION</code></a>	
+	* the data division can be followed by the <a href="proceduredivision.html"><code>PROCEDURE DIVISION</code></a>	
 </ul>

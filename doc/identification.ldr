@@ -5,5 +5,5 @@ remarks: <ul>
 	* there can be many clauses, and both names and values are not restricted: they can contain letters, numbers, spaces, punctuation, etc, except for a dot.
 	* to make your BabyCobol program more COBOL-like, start with the clause named <code>PROGRAM-ID</code>, and use any of the following clause names: <code>AUTHOR</code>, <code>INSTALLATION</code>, <code>DATE-WRITTEN</code>, <code>DATE-COMPILED</code>, <code>SECURITY</code>
 	* comment lines and <a href="copy.html"><code>COPY</code></a> instructions are allowed inside this division as well
-	* the identification division can be followed by either the <a href="data.html"><code>DATA DIVISION</code></a> or the <a href="procedure.html"><code>PROCEDURE DIVISION</code></a>	
+	* the identification division can be followed by either the <a href="datadivision.html"><code>DATA DIVISION</code></a> or the <a href="proceduredivision.html"><code>PROCEDURE DIVISION</code></a>	
 </ul>

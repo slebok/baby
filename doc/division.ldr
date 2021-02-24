@@ -2,8 +2,8 @@ summary: the top unit of a BabyCobol program
 format: [26:] >> - Identification - #1 -5 #2 -8 >< &1 \ Data / &2 \ Procedure /
 remarks: <ul>
 	* every BabyCobol program consists of up to three divisions
-	* the first division is the only one mandatory, and it is the <a href="identification.html"><code>IDENTIFICATION DIVISION</code></a>, it contains some data that helps to identify this program and distinguish it from other programs
-	* the second division is optional, and it is the <a href="data.html"><code>DATA DIVISION</code></a>, it contains field and structure declarations
-	* the third division is also optional, and it is the <a href="procedure.html"><code>PROCEDURE DIVISION</code></a>, it contains executable code
+	* the first division is the only one mandatory, and it is the <a href="identificationdivision.html"><code>IDENTIFICATION DIVISION</code></a>, it contains some data that helps to identify this program and distinguish it from other programs
+	* the second division is optional, and it is the <a href="datadivision.html"><code>DATA DIVISION</code></a>, it contains field and structure declarations
+	* the third division is also optional, and it is the <a href="proceduredivision.html"><code>PROCEDURE DIVISION</code></a>, it contains executable code
 	* <a href="copy.html"><code>COPY</code></a> is the only instruction that is allowed in any division
 </ul>
