@@ -1,2 +1,3 @@
 summary: a statement to call a paragraph or section within the program
 format: [42.] >> - "PERFORM" - ProcedureName - #1 -15 #2 -10 >< &1 \ "THROUGH" - ProcedureName / &2 \ Atomic - "TIMES" /
+remarks: See a <a href="perform-goto.html">separate example</a> showcasing the interplay between <code>PERFORM</code> and <a href="goto.html"><code>GO TO</code></a>.

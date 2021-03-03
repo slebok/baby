@@ -5,4 +5,5 @@ remarks: <ul>
 	* branching outside an active <code>LOOP</code> terminates its iteration
 	* branching outside paragraphs being <code>PERFORM</code>ed terminates the performance and forfeits the call place, acting as a redirected return
 	* the argument can be a field name, possibly being reassigned at runtime with <code>MOVE</code>
+	* See a <a href="perform-goto.html">separate example</a> showcasing the interplay between <a href="perform.html"><code>PERFORM</code></a> and <code>GO TO</code>.
 </ul>
