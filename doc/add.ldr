@@ -1,5 +1,5 @@
 summary: a statement to add two or more values together
-format: [33:] >> - "ADD" - - Atomic - ^5 - "TO" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
+format: [33:4:1] >> - "ADD" - - Atomic - ^5 - "TO" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
 remarks: <ul>
 	* all three arguments obey the rules of sufficient qualification
 	* either of the first two arguments can be a literal

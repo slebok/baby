@@ -1,5 +1,5 @@
 summary: a statement to branch unconditionally to a paragraph within a program
-format: [17.] >> - "GO_TO" - ProcedureName - ><
+format: [17:3:0] >> - "GO_TO" - ProcedureName - ><
 // todo: the CC paper also included GO TO ... OR ...
 remarks: <ul>
 	* branching outside an active <code>LOOP</code> terminates its iteration

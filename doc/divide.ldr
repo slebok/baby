@@ -1,5 +1,5 @@
 summary: a statement to divide a numeric value by other numbers
-format: [50:] >> - "DIVIDE" - Atomic - "INTO" - - Atomic - ^5 - #1 -12 #2 -15 >< &1 \ "GIVING" - Identifier / &2 \ "REMAINDER" - Identifier /
+format: [50:4:1] >> - "DIVIDE" - Atomic - "INTO" - - Atomic - ^5 - #1 -12 #2 -15 >< &1 \ "GIVING" - Identifier / &2 \ "REMAINDER" - Identifier /
 remarks: <ul>
 	* all four arguments obey the rules of sufficient qualification
 	* either of the first two arguments can be a literal

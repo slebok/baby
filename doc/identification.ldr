@@ -1,5 +1,5 @@
 summary: the first division of a program
-format: [36:] >> - "IDENTIFICATION_DIVISION." -2 Name - "." - Value - "." - ^12 - ><
+format: [36:4:1] >> - "IDENTIFICATION_DIVISION." -2 Name - "." - Value - "." - ^12 - ><
 remarks: <ul>
 	* this division is mandatory, and each correct BabyCobol program should start with it
 	* there can be many clauses, and both names and values are not restricted: they can contain letters, numbers, spaces, punctuation, etc, except for a dot.

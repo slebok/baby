@@ -1,5 +1,5 @@
 summary: a statement to read user input and store it in variables
-format: [17:] >> - "ACCEPT" - - Identifier - ^7 - ><
+format: [17:4:1] >> - "ACCEPT" - - Identifier - ^7 - ><
 remarks: <ul>
 	* the input is expected to obey the picture clause definition of the data fields being read
 	* Essentially, the <code>PICTURE</code> clause is a binding between the actual data and its displayed representation. For a software language engineer, it might be tempting to implement this binding as two mappings between consistent formats. The <code>ACCEPT</code> statement prevents this, since it demands a binding between an unreliable displayable representation (entered by the user) and the consistent internal representation that must be created from it, available at runtime.
