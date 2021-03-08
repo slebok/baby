@@ -1,2 +1,2 @@
 summary: an instruction to terminate the program
-format: [7:3:0] >> - "STOP" - ><
+format: [8:3:0] >> - "STOP" - ><

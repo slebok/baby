@@ -1,2 +1,2 @@
 summary: an instruction to specify an error handler
-format: [24:4:1] >> - "SIGNAL" - #1 - ProcedureName -2 "ON_ERROR" - >< &1 \ "OFF" -5 /
+format: [24:4:0] >> - "SIGNAL" - #1 - ProcedureName -2 "ON_ERROR" - >< &1 \ "OFF" -5 /
