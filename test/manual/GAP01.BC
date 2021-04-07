@@ -1,0 +1,30 @@
+      * BabyCobol test case:
+      *  GO TO + ALTER + PERFORM
+      * Description:
+      *  ALTER a GO TO from "jump out of range" to "jump within range"
+      * Correct output:
+      * :A-AB!
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. GAP01.
+       PROCEDURE DIVISION.
+       MAIN.
+        DISPLAY ':' WITH NO ADVANCING.
+        PERFORM A THROUGH B.
+        DISPLAY ';' WITH NO ADVANCING.
+       AGAIN.
+        ALTER PATH TO PROCEED TO B.
+        PERFORM A THROUGH B.
+        DISPLAY '!'.
+       FINISH.
+        STOP.
+       A.
+        DISPLAY 'A' WITH NO ADVANCING.
+       PATH.
+      * will be ALTERed to do nothing (step to the next paragraph)
+        GO TO SKIP.
+       B.
+        DISPLAY 'B' WITH NO ADVANCING.
+       SKIP.
+        DISPLAY '-' WITH NO ADVANCING.
+       F.
+        GO TO AGAIN.
