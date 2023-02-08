@@ -1,10 +1,10 @@
 summary: a statement to multiply two or more numeric values
 format: [33:4:1] >> - "MULTIPLY" - Atomic - "BY" -2 Atomic - ^5 - #1 -12 >< &1 \ "GIVING" - Identifier /
 remarks: <ul>
-	* multiplies each of the second arguments by the first argument and overwrites the old value of each second argument
+	* multiplies each of the second arguments by the first argument and overwrites the old value of each second argument, unless the third argument specifies a different storage place
 	* so, for example, <code>MULTIPLY 2 BY X Y Z</code> will double the values of <code>X</code>, <code>Y</code> and <code>Z</code>
 	* all three arguments obey the rules of sufficient qualification
-	* the first argument can be a literal or a field name
+	* the first argument can be a literal
 	* if the second argument is a literal, the third argument is mandatory
 	* any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)
 </ul>

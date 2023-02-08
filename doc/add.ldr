@@ -1,8 +1,12 @@
 summary: a statement to add two or more values together
-format: [33:4:1] >> - "ADD" - - Atomic - ^5 - "TO" - Atomic - #1 -12 >< &1 \ "GIVING" - Identifier /
+format: [34:5:1] >> - "ADD" - - Atomic - ^5 - "TO" - Atomic - #1 -14 >< &1 \2 - "GIVING" - Identifier - ^11 /2
 remarks: <ul>
+	* adds each of the first arguments to the second argument and overwrites the old value of the second argument, unless the third argument specifies a different storage place
+	* so, for example, <code>ADD 1 2 3 TO X</code> will increase the value of <code>X</code> by 6
 	* all three arguments obey the rules of sufficient qualification
-	* either of the first two arguments can be a literal
+	* the first argument can be a literal
 	* if the second argument is a literal, the third argument is mandatory
 	* any of the three arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)
+	* if the first argument denotes a composite field, then the second argument should also denote a composite field, and the addition works correspondingly: for instance, if the first argument is a field <code>X</code> with inner numeric fields <code>A</code>, <code>B</code> and <code>C</code>, and the second argument is a field <code>Y</code> with inner numeric fields <code>A</code>, <code>C</code> and <code>D</code>, then <code>A OF Y</code> is increased by <code>A OF X</code> and <code>C OF Y</code> is increased by <code>C OF X</code>, and all other fields remain unchanged
+	* if all three arguments are composite fields, combine the description above with a <code>MOVE</code> to the target location
 </ul>

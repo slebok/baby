@@ -1,11 +1,13 @@
 summary: a statement to divide a numeric value by other numbers
-format: [50:5:1] >> - "DIVIDE" - Atomic - "INTO" - - Atomic - ^5 - #1 -27 >< &1 \ "GIVING" - Identifier - #2 -13 / &2 \ "REMAINDER" - Identifier /
+format: [50:6:1] >> - "DIVIDE" - Atomic - "INTO" - - Atomic - ^5 - #1 -28 >< &1 \2 "GIVING" -2 Identifier - ^7 - #2 -13 /2 &2 \ "REMAINDER" - Identifier /
 remarks: <ul>
-	* divides each of the second arguments by the first argument and overwrites the old value of each second argument
+	* divides each of the second arguments by the first argument and overwrites the old value of each second argument, unless the third argument specifies a different storage place
 	* so, for example, <code>DIVIDE 2 INTO X Y Z</code> will halve the values of <code>X</code>, <code>Y</code> and <code>Z</code>
 	* all four arguments obey the rules of sufficient qualification
-	* the first argument can be a literal or a field name
+	* the first argument can be a literal
 	* if the second argument is a literal, the third argument is mandatory
+	* if the third argument is present, there can be only one second argument
+	* if the fourth argument is present, there can be only one third argument
 	* if the four argument is not present, the remainder is lost
 	* any of the four arguments can be an identifier defined with a numeric picture clause (free from <code>A</code> and <code>X</code>)
 </ul>
