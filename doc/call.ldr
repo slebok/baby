@@ -1,0 +1,9 @@
+summary: an instruction to execute another program
+format: [35:7:1] >> - "CALL" - FileName - #1 -23 >< &1 \2 "USING" -2 #2 - "BY_REFERENCE" - Identifier -2 ^16 /2 &2 \ "BY_CONTENT" - Atomic -4 &2 \2 "BY_VALUE" - Atomic -4 /2
+remarks: <ul>
+	* Executes another program denoted with <code><em>FileName</em></code>, from the start of its <a href="proceduredivision.html"><code>PROCEDURE DIVISION</code></a> until its end or until its <a href="stop.html"><code>STOP</code></a>, whatever comes first, and the continues to execute the current program from the next statement.
+	* If the call uses arguments, they should match exactly the arguments of the <a href="proceduredivision.html"><code>PROCEDURE DIVISION</code></a> of the program being called.
+	* <code>BY REFERENCE</code> arguments can be accessed and modified by the called program.
+	* <code>BY CONTENT</code> arguments be accessed by the called program, but cannot be modified.
+	* <code>BY VALUE</code> arguments can be accessed and modified by the called program, but the modification do not propagate back to the caller.
+</ul>

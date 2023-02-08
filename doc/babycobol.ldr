@@ -222,7 +222,7 @@ statement COBOL.ADD became ADD
 summary: sum two or more numeric operands
 statement COBOL.ALTER became ALTER
 summary: change the transfer point of an existing GO TO statement
-statement COBOL.CALL
+statement COBOL.CALL became CALL
 summary: transfer control from one program to another
 statement COBOL.CANCEL
 summary: clear the state of a called subprogram
@@ -741,7 +741,7 @@ statement AppBuilder.IF became IF
 summary: branch conditionally within a program
 statement AppBuilder.HANDLER
 summary: assign a handler to an event
-statement AppBuilder.USE became COPY
+statement AppBuilder.USE became CALL
 summary: call a rule or a component from into another rule
 statement AppBuilder.DO became LOOP
 summary: a multi-purpose loop statement with a number of detachable clauses
@@ -784,6 +784,9 @@ statement BabyCobol.ACCEPT
 
 statement BabyCobol.ALTER
 @@alter.ldr
+
+statement BabyCobol.CALL
+@@call.ldr
 
 statement BabyCobol.COPY
 @@copy.ldr
