@@ -1,7 +1,9 @@
 summary: a composite statement allowing to branch to multiple locations based on several conditions
-format: [53:10:3] >> - "EVALUATE" - AnyExpression -2 "ALSO" - AnyExpression - ^12 -2 WhenClause -3 Statement - ^7 - ¡16 - "END" - >< $4 WhenClause >> - "WHEN" - #1 -3 Atomic - #3 \ "THROUGH" - Atomic / &3 -10 - ^16 - #4 - "ALSO" - ¡22 &4 \ -4 >< &1 \2 - "OTHER" -17 /
+format: [53:11:3] >> - "EVALUATE" - AnyExpression - #1 -15 &1 \2 - "ALSO" - AnyExpression - ^12 /2 -4 WhenClause -3 Statement - ^7 - ¡16 - "END" - >< $5 WhenClause >> - "WHEN" - #2 -3 Atomic - #3 \ "THROUGH" - Atomic / &3 -10 - ^16 - #4 - "ALSO" - ¡22 &4 \ -4 >< &2 \2 - "OTHER" -17 /
 remarks: <ul>
-	* Essentially, the role of the <code>EVALUATE</code> statement is to bring infix expressions into the language, and they are needed to force the software language engineer to deal with parsing ambiguities between <code>A-B</code> and <code>A - B</code> where the first one is a name of a single field and the second one is a binary subtraction of two fields (spaces serve a demonstrative purpose in this example, and are ignored during by the lexical analyser).
+	* Essentially, besides being a form of a branching, the <code>EVALUATE</code> statement brings infix operators into the language in a place where space-separated expressions are allowed.
+	* Implementers are forced deal with parsing ambiguities between <code>A-B</code> (single field), <code>A -B</code> (two expressions: one field and one unary expression) and <code>A - B</code> (a binary subtraction of two fields).
+	* Spaces in the example above serve a demonstrative purpose, and are ignored by the lexical analyser.
 	* Note that <code>WHEN</code>-branches consist of statements, not sentences.
 	* There can be only one <code>WHEN OTHER</code> clause within each <code>EVALUATE</code>.
 	* Unlike COBOL, BabyCobol does not support empty <code>WHEN</code> branches: grouping of multiple conditions is done by the <code>WHEN</code> clause itself, like in 4GLs like <a href="appbuilder.html">AppBuilder</a>, so <code>WHEN 1 WHEN 2 DISPLAY "OK"</code> in COBOL would look like <code>WHEN 1 2 DISPLAY "OK"</code> in BabyCobol.
