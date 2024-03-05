@@ -26,6 +26,9 @@ source COBOL is IBM SC23-8528-01, Enterprise COBOL for z/OS Language Reference V
 source RPG is IBM SC09-2508-09, IBM i Version 7.2, Programming IBM Rational Development Studio for i ILE RPG Reference, 1994–2013
 source AppBuilder is Castle / CSL — Specification, Version 1.97.0.0, 20 May 2020, Raincode
 
+pearl perform-goto is Interplay between PERFORM THROUGH and GO TO
+pearl 99-bottles is 99 Bottles of Beer
+
   ////  // //  ///      //   ////    //  //  ////   //   ///   ////  /// 
  ///   /////  ////    ////  ///     //////  ///   ////  ////  ///   ////
 ////  // //  ///      //   //      //  //  ////  ////  ///   ////  // //
